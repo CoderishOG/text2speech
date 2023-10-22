@@ -1,6 +1,15 @@
 const { Telegraf} = require('telegraf');
 const translate = require('translate-google');
+const express=require('express');
 require('dotenv').config();
+const app=express();
+app.get("/",(req,res)=>{
+  res.send("hello");
+})
+const port=30002;
+app.listen(port,()=>{
+  console.log(`Service is running at http://localhost:${port}`)
+})
 const bot=new Telegraf(process.env.BOT_TOKEN)
 const fs=require('fs')
 const fetch=require('node-fetch') 
